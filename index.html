@@ -1,1 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skill Issue SMP | Skill Issue, No Skill?</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="star-container">
+        <div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div>
+    </div>
 
+    <div id="main-content">
+        <div id="title-section">
+            <h1 class="neon-yellow">SKILL ISSUE</h1>
+            <h2 class="neon-white">SMP</h2>
+        </div>
+
+        <div id="button-section">
+            <div class="button-row">
+                <button class="menu-btn" onclick="handleMenuClick(this, 'TIERS')">TIERS</button>
+                <button class="menu-btn" onclick="handleMenuClick(this, 'PLAYER INFO')">PLAYER INFO</button>
+                <button class="menu-btn" onclick="handleMenuClick(this, 'SMP RULES')">SMP RULES</button>
+            </div>
+            <div class="button-row">
+                <button class="menu-btn" onclick="handleMenuClick(this, 'BUILDS')">BUILDS</button>
+                <button class="menu-btn" onclick="handleMenuClick(this, 'MEMBERS')">MEMBERS</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="rules-gui" class="hidden-gui">
+        <div id="rules-title-section">
+            <h1 class="rules-title">RULES</h1>
+        </div>
+        
+        <div id="rules-list">
+            <div class="rule-item">
+                <span class="rule-num">1st Rule -</span> No builds can be blown up.
+            </div>
+            <div class="rule-item">
+                <span class="rule-num">2nd Rule -</span> You can only PvP at night.
+            </div>
+            <div class="rule-item">
+                <span class="rule-num">3rd Rule -</span> Goods cannot be stolen from anyone's chest.
+            </div>
+            
+            <div class="more-rules">More rules coming soon...</div>
+            
+            <button class="menu-btn back-btn" onclick="closeRules()">BACK TO MENU</button>
+        </div>
+    </div>
+
+    <script>
+        function handleMenuClick(btn, actionText) {
+            if (actionText === 'SMP RULES') {
+                // Main menu hide kora
+                document.getElementById('main-content').style.display = 'none';
+                
+                // Rules GUI show kora ar animation trigger kora
+                let rulesGui = document.getElementById('rules-gui');
+                rulesGui.classList.remove('hidden-gui');
+                
+                // Animation proper restart korar trick
+                rulesGui.classList.remove('active');
+                void rulesGui.offsetWidth; // Refresh the DOM
+                rulesGui.classList.add('active');
+            } else {
+                // "Coming Soon" Logic for other buttons
+                let originalText = btn.innerText;
+                btn.innerText = "COMING SOON...";
+                btn.style.backgroundColor = "#ff3333";
+                btn.style.color = "#ffffff";
+                btn.style.borderColor = "#ff3333";
+                btn.style.boxShadow = "none";
+                
+                setTimeout(() => {
+                    btn.innerText = originalText;
+                    btn.style.backgroundColor = ""; 
+                    btn.style.borderColor = "";
+                    btn.style.boxShadow = "";
+                }, 2000);
+            }
+        }
+
+        // Main menu te fire ashar function
+        function closeRules() {
+            let rulesGui = document.getElementById('rules-gui');
+            rulesGui.classList.add('hidden-gui');
+            rulesGui.classList.remove('active');
+            document.getElementById('main-content').style.display = 'flex';
+        }
+    </script>
+</body>
+</html>
