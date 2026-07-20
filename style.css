@@ -115,29 +115,18 @@ body {
    PLAYER INFO GUI STYLES (PERFECTLY CENTERED)
    ========================================= */
 #player-info-gui {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center; /* Eta 'flex-start' chilo, change kore 'center' koro */
-    width: 100%;
-    height: 100vh;
-    padding-top: 20px;
+    align-items: center; /* This centers everything inside perfectly */
+    padding-top: 50px;
     box-sizing: border-box;
 }
 
-.player-list-container {
-    width: 80vw;
-    max-width: 900px;
-    margin: 0 auto; /* Eta container-ke majhkhane rakbe */
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Eta player card-guloke majhkhane rakbe */
-    gap: 20px;
-    margin-bottom: 20px;
-    opacity: 0;
-}
-#player-info-gui.active .player-list-container {
-    animation: buttonsAppear 1s ease-in forwards; animation-delay: 0.5s; 
+.player-list-container{
+    width:95%;
+    max-width:1650px;   /* আগে 900px ছিল */
+    margin:0 auto;
+    display:flex;
+    flex-direction:column;
+    gap:20px;
 }
 
 /* Player Card with Yellow to White Outline Pulse */
