@@ -26,7 +26,6 @@
             </div>
             <div class="button-row">
                 <button class="menu-btn" onclick="handleMenuClick(this, 'BUILDS')">BUILDS</button>
-                <button class="menu-btn" onclick="handleMenuClick(this, 'MEMBERS')">MEMBERS</button>
             </div>
         </div>
     </div>
@@ -78,29 +77,30 @@
         <button class="menu-btn back-btn" onclick="closeGui('player-info-gui')">BACK TO MENU</button>
     </div>
 
-    <!-- PLAYER STATS MODAL (Popup Box) -->
+    <!-- PLAYER STATS MODAL (Premium Popup Box) -->
     <div id="stats-modal" class="hidden-modal">
-        <div class="stats-box">
-            <h2 id="stat-player-name">Player Name</h2>
+        <div class="stats-box premium-glass">
+            <div class="premium-glow-border"></div>
+            <h2 id="stat-player-name" class="premium-title">Player Name</h2>
             <div class="stat-grid">
-                <div class="stat-item">
+                <div class="stat-item premium-card">
                     <span class="stat-label">KILL</span>
                     <span class="stat-val" id="stat-kill">0</span>
                 </div>
-                <div class="stat-item">
+                <div class="stat-item premium-card">
                     <span class="stat-label">DEATH</span>
                     <span class="stat-val" id="stat-death">0</span>
                 </div>
-                <div class="stat-item">
+                <div class="stat-item premium-card">
                     <span class="stat-label">PLAYTIME</span>
                     <span class="stat-val" id="stat-time">0h</span>
                 </div>
-                <div class="stat-item kdr-item">
+                <div class="stat-item premium-card kdr-item">
                     <span class="stat-label kdr-label">KDR</span>
                     <span class="stat-val kdr-red-neon" id="stat-kdr">0</span>
                 </div>
             </div>
-            <button class="modal-close-btn" onclick="closeStats()">CLOSE</button>
+            <button class="modal-close-btn premium-btn" onclick="closeStats()">CLOSE</button>
         </div>
     </div>
 
@@ -161,20 +161,6 @@
                 openGui('builds-gui');
             } else if (actionText === 'PLAYER INFO') {
                 openGui('player-info-gui');
-            } else {
-                let originalText = btn.innerText;
-                btn.innerText = "COMING SOON...";
-                btn.style.backgroundColor = "#ff3333";
-                btn.style.color = "#ffffff";
-                btn.style.borderColor = "#ff3333";
-                btn.style.boxShadow = "none";
-                
-                setTimeout(() => {
-                    btn.innerText = originalText;
-                    btn.style.backgroundColor = ""; 
-                    btn.style.borderColor = "";
-                    btn.style.boxShadow = "";
-                }, 2000);
             }
         }
 
