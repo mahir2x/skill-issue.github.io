@@ -1,14 +1,14 @@
 /* Basic Reset & Setup */
 body { 
     margin: 0; padding: 0; background-color: #000; color: #fff; 
-    font-family: 'Arial', sans-serif; overflow: hidden; 
+    font-family: 'Arial', sans-serif; overflow-x: hidden; 
     display: flex; justify-content: center; align-items: center; 
     min-height: 100vh; position: relative; 
 }
 
-/* Star Background - Placed Behind Everything */
+/* Star Background */
 .star-container { 
-    position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
     overflow: hidden; pointer-events: none; z-index: 1; 
 }
 .star { 
@@ -27,8 +27,8 @@ body {
 .star:nth-child(5n+4) { animation-duration: 9s; animation-delay: 3s; width: 1.5px; }
 .star:nth-child(5n+5) { animation-duration: 10s; animation-delay: 4s; width: 2px; }
 
-/* Main Menu Screens Layout */
-#main-content, #rules-gui { 
+/* Main Screens Layout */
+#main-content, #rules-gui, #builds-gui, #player-info-gui { 
     position: absolute; width: 100%; height: 100vh; 
     display: flex; flex-direction: column; 
     align-items: center; justify-content: center; z-index: 10; 
@@ -82,9 +82,8 @@ body {
 }
 .button-row:nth-child(1) .menu-btn:nth-child(1) { animation-delay: 6.2s; }
 .button-row:nth-child(1) .menu-btn:nth-child(2) { animation-delay: 6.4s; }
-.button-row:nth-child(1) .menu-btn:nth-child(3) { animation-delay: 6.6s; }
-.button-row:nth-child(2) .menu-btn:nth-child(1) { animation-delay: 6.8s; }
-.button-row:nth-child(2) .menu-btn:nth-child(2) { animation-delay: 7.0s; }
+.button-row:nth-child(2) .menu-btn:nth-child(1) { animation-delay: 6.6s; }
+.button-row:nth-child(2) .menu-btn:nth-child(2) { animation-delay: 6.8s; }
 
 @keyframes individualButtonFade { 
     0% { opacity: 0; transform: translateY(10px); } 
@@ -96,70 +95,232 @@ body {
 }
 
 /* =========================================
-   NEW RULES GUI STYLES (PREMIUM LOOK)
+   PLAYER INFO GUI STYLES (PREMIUM)
+   ========================================= */
+#player-info-gui {
+    justify-content: flex-start;
+    padding-top: 50px;
+    box-sizing: border-box;
+}
+
+.player-list-container {
+    width: 90%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+    opacity: 0;
+}
+#player-info-gui.active .player-list-container {
+    animation: buttonsAppear 1s ease-in forwards; animation-delay: 0.5s; 
+}
+
+/* Thick Unique Box for Players */
+.player-card {
+    background: rgba(20, 20, 20, 0.85);
+    border: 2px solid #333;
+    border-radius: 12px;
+    padding: 15px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.6);
+    transition: all 0.3s ease;
+}
+.player-card:hover {
+    border-color: #555;
+    background: rgba(30, 30, 30, 0.95);
+    transform: scale(1.02);
+}
+
+/* Name and Rank Styling */
+.player-name-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.rank {
+    font-size: 2rem;
+    font-weight: bold;
+}
+.gold-neon {
+    color: #ffd700;
+    text-shadow: 0 0 5px #ffd700, 0 0 15px #ffd700, 0 0 30px #ffd700;
+}
+.silver-neon {
+    color: #c0c0c0;
+    text-shadow: 0 0 5px #c0c0c0, 0 0 10px #c0c0c0;
+}
+.p-name {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #eee;
+    letter-spacing: 1px;
+}
+
+/* Info Button */
+.info-btn {
+    background: linear-gradient(45deg, #0f0c29, #302b63, #24243e);
+    color: #fff;
+    border: 1px solid #777;
+    padding: 8px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(255,255,255,0.2);
+    transition: all 0.3s ease;
+}
+.info-btn:hover {
+    background: linear-gradient(45deg, #d6d600, #f0f000);
+    color: #000;
+    border-color: #fff;
+    box-shadow: 0 0 15px #f0f000;
+}
+
+.update-notice {
+    color: #ff5555;
+    font-size: 0.9rem;
+    font-style: italic;
+    margin-bottom: 20px;
+    opacity: 0;
+}
+#player-info-gui.active .update-notice { animation: individualButtonFade 1s ease-in forwards; animation-delay: 1.5s; }
+
+/* =========================================
+   STATS MODAL (POPUP) STYLES
+   ========================================= */
+#stats-modal {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    display: none; /* Hidden by default */
+    justify-content: center; align-items: center;
+    z-index: 100;
+}
+.stats-box {
+    background: #111;
+    border: 2px solid #555;
+    border-radius: 15px;
+    padding: 30px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 0 30px rgba(0,0,0,0.9);
+    animation: popIn 0.3s ease-out;
+}
+@keyframes popIn {
+    0% { transform: scale(0.8); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+#stat-player-name {
+    color: #fff; font-size: 2rem; margin-top: 0;
+    border-bottom: 1px solid #333; padding-bottom: 15px;
+    text-shadow: 0 0 10px rgba(255,255,255,0.5);
+}
+.stat-grid {
+    display: flex; flex-direction: column; gap: 15px; margin-bottom: 25px;
+}
+.stat-item {
+    display: flex; justify-content: space-between; align-items: center;
+    background: #1a1a1a; padding: 10px 15px; border-radius: 8px;
+    border: 1px solid #333;
+}
+.stat-label { color: #aaa; font-weight: bold; font-size: 1.1rem; }
+.stat-val { color: #fff; font-size: 1.2rem; font-weight: bold; }
+
+/* KDR Red Neon specific */
+.kdr-item { border-color: #ff3333; background: rgba(255, 51, 51, 0.1); }
+.kdr-label { color: #ff3333; }
+.kdr-red-neon {
+    color: #ff3333;
+    text-shadow: 0 0 5px #ff3333, 0 0 15px #ff3333, 0 0 25px #ff3333;
+    font-size: 1.4rem;
+}
+
+.modal-close-btn {
+    background: #333; color: white; border: none; padding: 10px 25px;
+    font-size: 1rem; font-weight: bold; border-radius: 8px;
+    cursor: pointer; transition: 0.3s;
+}
+.modal-close-btn:hover { background: #ff3333; box-shadow: 0 0 15px #ff3333; }
+
+
+/* =========================================
+   RULES & BUILDS GUI (Kept intact from before)
    ========================================= */
 
 /* Rules Title Sequence */
 #rules-gui.active #rules-title-section {
     position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-    opacity: 0;
-    animation: rulesTitleMove 4s ease-in-out forwards;
+    opacity: 0; animation: rulesTitleMove 4s ease-in-out forwards;
 }
-
 .rules-title {
-    font-size: 4.5rem; font-weight: bold; letter-spacing: 5px;
-    margin: 0;
-    /* Mixed Neon Pulse: Red Base flashing White/Yellow */
+    font-size: 4.5rem; font-weight: bold; letter-spacing: 5px; margin: 0;
     animation: rulesColorPulse 2s infinite;
 }
-
 @keyframes rulesColorPulse {
-    0%, 100% { color: #ff3333; text-shadow: 0 0 10px #ff3333, 0 0 20px #ff3333, 0 0 30px #ff3333; }
-    50% { color: #fff; text-shadow: 0 0 10px #f0f000, 0 0 20px #f0f000, 0 0 40px #fff; }
+    0%, 100% { color: #ff3333; text-shadow: 0 0 10px #ff3333, 0 0 20px #ff3333; }
+    50% { color: #fff; text-shadow: 0 0 10px #f0f000, 0 0 20px #f0f000; }
 }
-
 @keyframes rulesTitleMove {
     0% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
-    20%, 60% { opacity: 1; transform: translate(-50%, -50%) scale(1); } /* Wait in center */
-    100% { opacity: 1; transform: translate(-50%, -200%) scale(0.9); } /* Move up high */
+    20%, 60% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+    100% { opacity: 1; transform: translate(-50%, -200%) scale(0.9); }
 }
 
 /* Rules List Layout */
 #rules-list {
     display: flex; flex-direction: column; align-items: center; gap: 15px;
     position: absolute; top: 45%; left: 50%; transform: translate(-50%, 0);
-    width: 85%; max-width: 600px;
-    visibility: hidden; opacity: 0;
+    width: 85%; max-width: 600px; visibility: hidden; opacity: 0;
 }
-#rules-gui.active #rules-list {
-    animation: buttonsAppear 1s ease-in forwards; animation-delay: 3s; 
-}
-
-/* Individual Rule Styling */
+#rules-gui.active #rules-list { animation: buttonsAppear 1s ease-in forwards; animation-delay: 3s; }
 .rule-item {
-    background: rgba(20, 20, 20, 0.7); border: 1px solid #333;
-    border-left: 5px solid #ff3333; padding: 15px 20px;
-    width: 100%; text-align: left; border-radius: 8px;
-    font-size: 1.1rem; letter-spacing: 1px; color: #eee;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.5); opacity: 0;
+    background: rgba(20, 20, 20, 0.7); border: 1px solid #333; border-left: 5px solid #ff3333;
+    padding: 15px 20px; width: 100%; text-align: left; border-radius: 8px;
+    font-size: 1.1rem; color: #eee; opacity: 0;
 }
-
 #rules-gui.active .rule-item:nth-child(1) { animation: individualButtonFade 1s ease-in forwards; animation-delay: 3.5s; }
 #rules-gui.active .rule-item:nth-child(2) { animation: individualButtonFade 1s ease-in forwards; animation-delay: 3.8s; }
 #rules-gui.active .rule-item:nth-child(3) { animation: individualButtonFade 1s ease-in forwards; animation-delay: 4.1s; }
-
-/* Neon Red Numbers */
-.rule-num {
-    color: #ff3333; text-shadow: 0 0 5px #ff3333, 0 0 15px #ff3333;
-    font-weight: bold; margin-right: 8px; font-size: 1.2rem;
-}
-
-/* More Rules Text & Back Button */
-.more-rules {
-    color: #888; font-style: italic; margin-top: 10px; font-size: 0.9rem; opacity: 0;
-}
+.rule-num { color: #ff3333; text-shadow: 0 0 5px #ff3333; font-weight: bold; margin-right: 8px; }
+.more-rules { color: #888; font-style: italic; margin-top: 10px; font-size: 0.9rem; opacity: 0; }
 #rules-gui.active .more-rules { animation: individualButtonFade 1s ease-in forwards; animation-delay: 4.5s; }
 
-.back-btn { margin-top: 15px; background-color: #333; opacity: 0; }
-#rules-gui.active .back-btn { animation: individualButtonFade 1s ease-in forwards; animation-delay: 4.8s; }
+/* Back Buttons for all GUIs */
+.back-btn { margin-top: 15px; background-color: #333; opacity: 0; width: 200px; }
+#rules-gui.active .back-btn, #builds-gui.active .back-btn, #player-info-gui.active .back-btn { animation: individualButtonFade 1s ease-in forwards; animation-delay: 1s; }
 .back-btn:hover { background-color: #ff3333; border-color: #ff3333; box-shadow: 0 0 10px #ff3333; }
+
+/* BUILDS GUI STYLES */
+#builds-gui {
+    justify-content: flex-start; padding-top: 30px; box-sizing: border-box; overflow-y: auto;
+}
+.build-main-title {
+    font-size: 2.5rem; color: #f0f000; text-shadow: 0 0 10px #f0f000, 0 0 20px #f0f000;
+    margin-bottom: 10px; text-align: center; letter-spacing: 2px;
+}
+.build-card-info {
+    background: rgba(20, 20, 20, 0.85); border: 1px solid #f0f000; border-radius: 10px;
+    padding: 15px 25px; text-align: center; max-width: 650px; width: 90%;
+    margin: 0 auto 20px auto; box-shadow: 0 0 15px rgba(240, 240, 0, 0.2);
+}
+.build-desc { font-size: 1.1rem; color: #fff; margin-top: 0; margin-bottom: 12px; }
+.build-stats {
+    display: flex; justify-content: space-around; flex-wrap: wrap; gap: 10px;
+    font-size: 0.95rem; color: #ff3333; border-top: 1px solid #333; padding-top: 10px;
+}
+.build-stats span strong { color: #fff; }
+.build-gallery {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px;
+    max-width: 650px; width: 90%; margin-bottom: 15px;
+}
+.img-box {
+    overflow: hidden; border-radius: 10px; border: 2px solid #333;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.6); transition: all 0.3s ease;
+}
+.build-img { width: 100%; height: 160px; object-fit: cover; display: block; transition: transform 0.4s ease; }
+.img-box:hover { border-color: #f0f000; box-shadow: 0 0 15px #f0f000; }
+.img-box:hover .build-img { transform: scale(1.08); }
