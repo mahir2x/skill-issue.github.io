@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Skill Issue SMP | Skill Issue, No Skill?</title>
+    <!-- CSS Link kora holo -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -41,7 +42,7 @@
                     <span class="rank gold-neon">1</span>
                     <span class="p-name">Its_Mahir</span>
                 </div>
-                <button class="info-btn" onclick="showStats('Its_Mahir', '1', '0', '4h 36min', '1')">INFO</button>
+                <button class="info-btn" onclick="showStats('Its_Mahir', '50', '0', '30h', '50')">INFO</button>
             </div>
 
             <!-- Player 2 -->
@@ -50,7 +51,7 @@
                     <span class="rank silver-neon">2</span>
                     <span class="p-name">Its_Sinzo9</span>
                 </div>
-                <button class="info-btn" onclick="showStats('Its_Sinzo9', '1', '4', '2h 24min', '0.25')">INFO</button>
+                <button class="info-btn" onclick="showStats('Its_Sinzo9', '64', '21', '26h 30min', '3.05')">INFO</button>
             </div>
 
             <!-- Player 3 -->
@@ -59,7 +60,7 @@
                     <span class="rank silver-neon">3</span>
                     <span class="p-name">Its_Rudronil</span>
                 </div>
-                <button class="info-btn" onclick="showStats('Its_Rudronil', '0', '3', '3h 34min', '0')">INFO</button>
+                <button class="info-btn" onclick="showStats('Its_Rudronil', '22', '78', '18h', '0.28')">INFO</button>
             </div>
 
             <!-- Player 4 -->
@@ -68,16 +69,17 @@
                     <span class="rank silver-neon">4</span>
                     <span class="p-name">Araf_XD</span>
                 </div>
-                <button class="info-btn" onclick="showStats('Araf_XD', '0', '6', '2h 2min', '0')">INFO</button>
+                <button class="info-btn" onclick="showStats('Araf_XD', '10', '79', '10h', '0.13')">INFO</button>
             </div>
         </div>
 
         <div class="update-notice">*player info will update every week</div>
-
-        <button class="menu-btn back-btn" onclick="closeGui('player-info-gui')">BACK TO MENU</button>
+        <div class="back-btn-container">
+             <button class="menu-btn back-btn" onclick="closeGui('player-info-gui')">BACK TO MENU</button>
+        </div>
     </div>
 
-    <!-- PLAYER STATS MODAL (Premium Popup Box) -->
+    <!-- PLAYER STATS MODAL -->
     <div id="stats-modal" class="hidden-modal">
         <div class="stats-box premium-glass">
             <div class="premium-glow-border"></div>
@@ -121,17 +123,19 @@
                 <span class="rule-num">3rd Rule -</span> Goods cannot be stolen from anyone's chest.
             </div>
             <div class="more-rules">More rules coming soon...</div>
-            <button class="menu-btn back-btn" onclick="closeGui('rules-gui')">BACK TO MENU</button>
+            <div class="back-btn-container">
+                <button class="menu-btn back-btn" onclick="closeGui('rules-gui')">BACK TO MENU</button>
+            </div>
         </div>
     </div>
 
-    <!-- BUILDS GUI SCREEN -->
+    <!-- BUILDS GUI SCREEN (SCROLLABLE) -->
     <div id="builds-gui" class="hidden-gui">
-        <div id="builds-header">
+        
+        <!-- 1st BUILD -->
+        <div class="build-section">
             <h1 class="build-main-title">1st BUILD - FOUNTAIN</h1>
-            
             <div class="build-card-info">
-                <p class="build-desc">This is the very first official build constructed in Skill Issue SMP.</p>
                 <div class="build-stats">
                     <span><strong>Date:</strong> 21 July</span>
                     <span><strong>Time Taken:</strong> 2 Hours</span>
@@ -139,17 +143,119 @@
                     <span><strong>Helper:</strong> None</span>
                 </div>
             </div>
+            <div class="build-gallery grid-4">
+                <div class="img-box"><img src="https://i.postimg.cc/gjWL7csT/Screenshot-2026-07-21-003512.png" alt="Photo" class="build-img"></div>
+                <div class="img-box"><img src="https://i.postimg.cc/3NT0qr1b/Screenshot-2026-07-21-003023.png" alt="Photo" class="build-img"></div>
+                <div class="img-box"><img src="https://i.postimg.cc/J0LHF7xS/Screenshot-2026-07-21-002909.png" alt="Photo" class="build-img"></div>
+                <div class="img-box"><img src="https://i.postimg.cc/JnJBKHNB/Screenshot-2026-07-21-002803.png" alt="Photo" class="build-img"></div>
+            </div>
         </div>
 
-        <!-- 4 Photos Layout -->
-        <div class="build-gallery">
-            <div class="img-box"><img src="https://i.postimg.cc/gjWL7csT/Screenshot-2026-07-21-003512.png" alt="Fountain 1" class="build-img"></div>
-            <div class="img-box"><img src="https://i.postimg.cc/3NT0qr1b/Screenshot-2026-07-21-003023.png" alt="Fountain 2" class="build-img"></div>
-            <div class="img-box"><img src="https://i.postimg.cc/J0LHF7xS/Screenshot-2026-07-21-002909.png" alt="Fountain 3" class="build-img"></div>
-            <div class="img-box"><img src="https://i.postimg.cc/JnJBKHNB/Screenshot-2026-07-21-002803.png" alt="Fountain 4" class="build-img"></div>
+        <!-- 2nd BUILD -->
+        <div class="build-section">
+            <h1 class="build-main-title">2nd BUILD - Its_Mahir's house</h1>
+            <div class="build-card-info">
+                <div class="build-stats">
+                    <span><strong>Date:</strong> 21 July</span>
+                    <span><strong>Time Taken:</strong> 4h</span>
+                    <span><strong>Builder:</strong> Its_Mahir</span>
+                    <span><strong>Helper:</strong> None</span>
+                </div>
+            </div>
+            <div class="build-gallery grid-2">
+                <div class="img-box"><img src="https://i.postimg.cc/CKv00rQT/Screenshot-2026-07-21-121539.png" alt="Photo 1" class="build-img"></div>
+                <div class="img-box"><img src="https://i.postimg.cc/CKv00rQT/Screenshot-2026-07-21-121539.png" alt="Photo 2" class="build-img"></div>
+            </div>
         </div>
 
-        <button class="menu-btn back-btn" onclick="closeGui('builds-gui')">BACK TO MENU</button>
+        <!-- 3rd BUILD -->
+        <div class="build-section">
+            <h1 class="build-main-title">3rd BUILD - community hall</h1>
+            <div class="build-card-info">
+                <div class="build-stats">
+                    <span><strong>Date:</strong> 22 July</span>
+                    <span><strong>Time Taken:</strong> 6h</span>
+                    <span><strong>Builder:</strong> Its_Mahir</span>
+                    <span><strong>Recourse Collector:</strong> Its_Sinzo9</span>
+                </div>
+            </div>
+            <div class="build-gallery grid-3">
+                <div class="img-box"><img src="https://i.postimg.cc/QC2nscD3/Screenshot-2026-07-22-004240.png" alt="Photo 1" class="build-img"></div>
+                <div class="img-box"><img src="https://i.postimg.cc/tJZmL2KJ/Screenshot-2026-07-22-004507.png" alt="Photo 2" class="build-img"></div>
+                <div class="img-box"><img src="https://i.postimg.cc/fyGgZYsh/Screenshot-2026-07-22-004522.png" alt="Photo 3" class="build-img"></div>
+            </div>
+        </div>
+
+        <!-- 4th BUILD -->
+        <div class="build-section">
+            <h1 class="build-main-title">4th BUILD - Its_Sinzo9's house</h1>
+            <div class="build-card-info">
+                <div class="build-stats">
+                    <span><strong>Date:</strong> 22 July</span>
+                    <span><strong>Time Taken:</strong> 2h</span>
+                    <span><strong>Builder:</strong> Its_Mahir</span>
+                    <span><strong>Helper:</strong> None</span>
+                </div>
+            </div>
+            <div class="build-gallery grid-2">
+                <div class="img-box"><img src="https://i.postimg.cc/vZRpdw8K/Screenshot-2026-07-26-235514.png" alt="Photo 1" class="build-img"></div>
+                <div class="img-box"><img src="https://i.postimg.cc/Sx0wpbQ5/Screenshot-2026-07-26-235543.png" alt="Photo 2" class="build-img"></div>
+            </div>
+        </div>
+
+        <!-- 5th BUILD -->
+        <div class="build-section">
+            <h1 class="build-main-title">5th BUILD - tradeing hall</h1>
+            <div class="build-card-info">
+                <div class="build-stats">
+                    <span><strong>Date:</strong> 25 July</span>
+                    <span><strong>Time Taken:</strong> 3h</span>
+                    <span><strong>Builder:</strong> Its_Mahir</span>
+                    <span><strong>Helper:</strong> None</span>
+                </div>
+            </div>
+            <div class="build-gallery grid-2">
+                <div class="img-box"><img src="https://i.postimg.cc/9fP2kFG0/Screenshot-2026-07-26-182754.png" alt="Photo 1" class="build-img"></div>
+                <div class="img-box"><img src="https://i.postimg.cc/9fP2kFG0/Screenshot-2026-07-26-182754.png" alt="Photo 2" class="build-img"></div>
+            </div>
+        </div>
+
+        <!-- 6th BUILD -->
+        <div class="build-section">
+            <h1 class="build-main-title">6th BUILD - enchanting area</h1>
+            <div class="build-card-info">
+                <div class="build-stats">
+                    <span><strong>Date:</strong> 26 July</span>
+                    <span><strong>Time Taken:</strong> 50min</span>
+                    <span><strong>Builder:</strong> Its_Mahir</span>
+                    <span><strong>Helper:</strong> None</span>
+                </div>
+            </div>
+            <div class="build-gallery grid-2">
+                <div class="img-box"><img src="https://i.postimg.cc/1tH985tk/Screenshot-2026-07-26-182849.png" alt="Photo 1" class="build-img"></div>
+                <div class="img-box"><img src="https://i.postimg.cc/DZg2SyZt/Screenshot-2026-07-26-182924.png" alt="Photo 2" class="build-img"></div>
+            </div>
+        </div>
+
+        <!-- 7th BUILD -->
+        <div class="build-section">
+            <h1 class="build-main-title">7th BUILD - Araf_XD's house</h1>
+            <div class="build-card-info">
+                <div class="build-stats">
+                    <span><strong>Date:</strong> 26 July</span>
+                    <span><strong>Time Taken:</strong> 5 days</span>
+                    <span><strong>Builder:</strong> Araf_XD</span>
+                    <span><strong>Helper:</strong> None</span>
+                </div>
+            </div>
+            <div class="build-gallery grid-1">
+                <div class="img-box"><img src="https://i.postimg.cc/fWcdvxth/Screenshot-2026-07-26-184158.png" alt="Photo 1" class="build-img"></div>
+            </div>
+        </div>
+
+        <div class="back-btn-container" style="margin-bottom: 50px;">
+            <button class="menu-btn back-btn" onclick="closeGui('builds-gui')">BACK TO MENU</button>
+        </div>
     </div>
 
     <!-- JavaScript logic -->
