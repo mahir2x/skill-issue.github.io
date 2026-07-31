@@ -3,303 +3,415 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skill Issue SMP | Skill Issue, No Skill?</title>
-    <!-- CSS Link kora holo -->
+    <title>Skill Issue SMP | The Ultimate Hub</title>
+    <!-- Elite Gaming Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+    <!-- Link CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Background Stars -->
-    <div class="star-container">
-        <div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div>
+    <!-- Xeno-Level Ambient & Grid Background -->
+    <div class="ambient-bg">
+        <div class="cyber-grid"></div>
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
     </div>
+    <div class="star-container" id="stars"></div>
 
-    <!-- MAIN MENU SCREEN -->
-    <div id="main-content">
+    <!-- MAIN HUB SCREEN -->
+    <div id="main-content" class="screen-section active">
+        
+        <!-- Live Day Counter -->
+        <div class="smp-status">
+            <div class="live-dot"></div>
+            <span class="status-text">SEASON 01 // <span class="highlight">DAY <span id="smp-day-count">--</span></span></span>
+        </div>
+
         <div id="title-section">
-            <h1 class="neon-yellow">SKILL ISSUE</h1>
-            <h2 class="neon-white">SMP</h2>
+            <h2 class="sub-title">OFFICIAL DASHBOARD</h2>
+            <h1 class="main-title">SKILL ISSUE</h1>
+            <div class="smp-badge">
+                <span class="smp-text">S M P</span>
+                <div class="badge-glint"></div>
+            </div>
         </div>
 
         <div id="button-section">
             <div class="button-row">
-                <button class="menu-btn" onclick="handleMenuClick(this, 'PLAYER INFO')">PLAYER INFO</button>
-                <button class="menu-btn" onclick="handleMenuClick(this, 'SMP RULES')">SMP RULES</button>
+                <button class="elite-btn" onclick="switchTab('player-info-gui')">
+                    <span class="btn-text">PLAYER RANKINGS</span>
+                </button>
+                <button class="elite-btn" onclick="switchTab('rules-gui')">
+                    <span class="btn-text">SERVER DIRECTIVES</span>
+                </button>
             </div>
             <div class="button-row">
-                <button class="menu-btn" onclick="handleMenuClick(this, 'BUILDS')">BUILDS</button>
+                <button class="elite-btn primary-glow" onclick="switchTab('builds-gui')">
+                    <span class="btn-text">MASTERPIECE BUILDS</span>
+                </button>
+                <button class="elite-btn alert-glow" onclick="switchTab('server-info-gui')">
+                    <span class="btn-text">SERVER INFO</span>
+                </button>
             </div>
         </div>
     </div>
 
-    <!-- PLAYER INFO GUI SCREEN -->
-    <div id="player-info-gui" class="hidden-gui">
-        <h1 class="build-main-title">PLAYER RANKINGS</h1>
+    <!-- SERVER INFO GUI SCREEN -->
+    <div id="server-info-gui" class="screen-section hidden-gui scrollable">
+        <div class="header-container sticky-header">
+            <h1 class="section-heading">SYSTEM CORE</h1>
+            <div class="heading-line"></div>
+            <button class="back-btn floating-back" onclick="switchTab('main-content')">HUB</button>
+        </div>
+
+        <div class="info-wrapper">
+            <div class="glass-card server-card">
+                <div class="info-row">
+                    <span class="info-label">SERVER IP ADDRESS</span>
+                    <span class="info-val highlight-gold">skillissuesmp.qzz.io</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">WORLD SEED</span>
+                    <span class="info-val">3273190341372830859</span>
+                </div>
+                <div class="info-row date-row">
+                    <span class="info-label">SYSTEM INITIATION</span>
+                    <div class="glitch-date">
+                        <span class="d-text">19 JULY 2026</span>
+                        <div class="d-glitch"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-area">
+                <button class="back-btn" onclick="switchTab('main-content')">RETURN TO HUB</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- PLAYER RANKINGS SCREEN -->
+    <div id="player-info-gui" class="screen-section hidden-gui scrollable">
+        <div class="header-container sticky-header">
+            <h1 class="section-heading">ELITE RANKINGS</h1>
+            <div class="heading-line"></div>
+            <button class="back-btn floating-back" onclick="switchTab('main-content')">HUB</button>
+        </div>
         
         <div class="player-list-container">
-            <!-- Player 1 -->
-            <div class="player-card">
+            <!-- Rank 1 -->
+            <div class="glass-card player-card rank-1">
                 <div class="player-name-section">
-                    <span class="rank gold-neon">1</span>
-                    <span class="p-name">Its_Mahir</span>
+                    <div class="rank-badge gold">#1</div>
+                    <div class="p-name">Its_Mahir</div>
                 </div>
-                <button class="info-btn" onclick="showStats('Its_Mahir', '50', '0', '30h', '50')">INFO</button>
+                <button class="action-btn" onclick="showStats('Its_Mahir', '100', '1', '45h', '100.00')">VIEW DATA</button>
+            </div>
+            
+            <!-- Rank 2 -->
+            <div class="glass-card player-card">
+                <div class="player-name-section">
+                    <div class="rank-badge silver">#2</div>
+                    <div class="p-name">Its_Sinzo9</div>
+                </div>
+                <button class="action-btn" onclick="showStats('Its_Sinzo9', '87', '44', '36h 9m', '1.98')">VIEW DATA</button>
             </div>
 
-            <!-- Player 2 -->
-            <div class="player-card">
+            <!-- Rank 3 -->
+            <div class="glass-card player-card">
                 <div class="player-name-section">
-                    <span class="rank silver-neon">2</span>
-                    <span class="p-name">Its_Sinzo9</span>
+                    <div class="rank-badge bronze">#3</div>
+                    <div class="p-name">Araf_XD</div>
                 </div>
-                <button class="info-btn" onclick="showStats('Its_Sinzo9', '64', '21', '26h 30min', '3.05')">INFO</button>
+                <button class="action-btn" onclick="showStats('Araf_XD', '10', '121', '15h', '0.26')">VIEW DATA</button>
             </div>
 
-            <!-- Player 3 -->
-            <div class="player-card">
+            <!-- Rank 4 -->
+            <div class="glass-card player-card">
                 <div class="player-name-section">
-                    <span class="rank silver-neon">3</span>
-                    <span class="p-name">Its_Rudronil</span>
+                    <div class="rank-badge normal">#4</div>
+                    <div class="p-name">Its_Rudronil</div>
                 </div>
-                <button class="info-btn" onclick="showStats('Its_Rudronil', '22', '78', '18h', '0.28')">INFO</button>
+                <button class="action-btn" onclick="showStats('Its_Rudronil', '22', '90', '22h', '0.25')">VIEW DATA</button>
             </div>
-
-            <!-- Player 4 -->
-            <div class="player-card">
-                <div class="player-name-section">
-                    <span class="rank silver-neon">4</span>
-                    <span class="p-name">Araf_XD</span>
-                </div>
-                <button class="info-btn" onclick="showStats('Araf_XD', '10', '79', '10h', '0.13')">INFO</button>
+            
+            <div class="footer-area">
+                <p class="sys-notice">System auto-syncs data every week</p>
+                <button class="back-btn" onclick="switchTab('main-content')">RETURN TO HUB</button>
             </div>
-        </div>
-
-        <div class="update-notice">*player info will update every week</div>
-        <div class="back-btn-container">
-             <button class="menu-btn back-btn" onclick="closeGui('player-info-gui')">BACK TO MENU</button>
         </div>
     </div>
 
-    <!-- PLAYER STATS MODAL -->
+    <!-- STATS POPUP MODAL -->
     <div id="stats-modal" class="hidden-modal">
-        <div class="stats-box premium-glass">
-            <div class="premium-glow-border"></div>
-            <h2 id="stat-player-name" class="premium-title">Player Name</h2>
+        <div class="stats-box premium-glass-modal">
+            <button class="close-icon" onclick="closeStats()">×</button>
+            <div class="modal-header">
+                <div class="online-pulse"></div>
+                <h2 id="stat-player-name" class="modal-title">PLAYER_NAME</h2>
+            </div>
             <div class="stat-grid">
-                <div class="stat-item premium-card">
-                    <span class="stat-label">KILL</span>
+                <div class="stat-item">
+                    <span class="stat-label">ELIMINATIONS</span>
                     <span class="stat-val" id="stat-kill">0</span>
                 </div>
-                <div class="stat-item premium-card">
-                    <span class="stat-label">DEATH</span>
+                <div class="stat-item">
+                    <span class="stat-label">DEATHS</span>
                     <span class="stat-val" id="stat-death">0</span>
                 </div>
-                <div class="stat-item premium-card">
-                    <span class="stat-label">PLAYTIME</span>
-                    <span class="stat-val" id="stat-time">0h</span>
+                <div class="stat-item">
+                    <span class="stat-label">TIME PLAYED</span>
+                    <span class="stat-val text-cyan" id="stat-time">0h</span>
                 </div>
-                <div class="stat-item premium-card kdr-item">
-                    <span class="stat-label kdr-label">KDR</span>
-                    <span class="stat-val kdr-red-neon" id="stat-kdr">0</span>
+                <div class="stat-item alert-box">
+                    <span class="stat-label">K/D RATIO</span>
+                    <span class="stat-val text-red" id="stat-kdr">0.00</span>
                 </div>
             </div>
-            <button class="modal-close-btn premium-btn" onclick="closeStats()">CLOSE</button>
         </div>
     </div>
 
-    <!-- RULES GUI SCREEN -->
-    <div id="rules-gui" class="hidden-gui">
-        <div id="rules-title-section">
-            <h1 class="rules-title">RULES</h1>
+    <!-- RULES SCREEN -->
+    <div id="rules-gui" class="screen-section hidden-gui scrollable">
+        <div class="header-container sticky-header">
+            <h1 class="section-heading">SERVER DIRECTIVES</h1>
+            <div class="heading-line"></div>
+            <button class="back-btn floating-back" onclick="switchTab('main-content')">HUB</button>
         </div>
         
-        <div id="rules-list">
-            <div class="rule-item">
-                <span class="rule-num">1st Rule -</span> No builds can be blown up.
+        <div class="rules-container">
+            <div class="glass-card rule-item">
+                <div class="rule-icon">🛡️</div>
+                <div class="rule-text">
+                    <h3>DIRECTIVE 01: ARCHITECTURE</h3>
+                    <p>No builds can be blown up or griefed. Respect the creations of others.</p>
+                </div>
             </div>
-            <div class="rule-item">
-                <span class="rule-num">2nd Rule -</span> You can only PvP at night.
+            <div class="glass-card rule-item">
+                <div class="rule-icon">⚔️</div>
+                <div class="rule-text">
+                    <h3>DIRECTIVE 02: COMBAT</h3>
+                    <p>PvP engagement is strictly restricted to nighttime hours only.</p>
+                </div>
             </div>
-            <div class="rule-item">
-                <span class="rule-num">3rd Rule -</span> Goods cannot be stolen from anyone's chest.
+            <div class="glass-card rule-item">
+                <div class="rule-icon">🔒</div>
+                <div class="rule-text">
+                    <h3>DIRECTIVE 03: PROPERTY</h3>
+                    <p>Looting or stealing goods from anyone's chest is strictly prohibited.</p>
+                </div>
             </div>
-            <div class="more-rules">More rules coming soon...</div>
-            <div class="back-btn-container">
-                <button class="menu-btn back-btn" onclick="closeGui('rules-gui')">BACK TO MENU</button>
+            <div class="footer-area">
+                <button class="back-btn" onclick="switchTab('main-content')">RETURN TO HUB</button>
             </div>
         </div>
     </div>
 
-    <!-- BUILDS GUI SCREEN (SCROLLABLE) -->
-    <div id="builds-gui" class="hidden-gui">
-        
-        <!-- 1st BUILD -->
-        <div class="build-section">
-            <h1 class="build-main-title">1st BUILD - FOUNTAIN</h1>
-            <div class="build-card-info">
-                <div class="build-stats">
-                    <span><strong>Date:</strong> 21 July</span>
-                    <span><strong>Time Taken:</strong> 2 Hours</span>
-                    <span><strong>Builder:</strong> Its_Mahir</span>
-                    <span><strong>Helper:</strong> None</span>
-                </div>
-            </div>
-            <div class="build-gallery grid-4">
-                <div class="img-box"><img src="https://i.postimg.cc/gjWL7csT/Screenshot-2026-07-21-003512.png" alt="Photo" class="build-img"></div>
-                <div class="img-box"><img src="https://i.postimg.cc/3NT0qr1b/Screenshot-2026-07-21-003023.png" alt="Photo" class="build-img"></div>
-                <div class="img-box"><img src="https://i.postimg.cc/J0LHF7xS/Screenshot-2026-07-21-002909.png" alt="Photo" class="build-img"></div>
-                <div class="img-box"><img src="https://i.postimg.cc/JnJBKHNB/Screenshot-2026-07-21-002803.png" alt="Photo" class="build-img"></div>
-            </div>
+    <!-- BUILDS SCREEN -->
+    <div id="builds-gui" class="screen-section hidden-gui scrollable">
+        <div class="header-container sticky-header">
+            <h1 class="section-heading">MASTERPIECES</h1>
+            <div class="heading-line"></div>
+            <button class="back-btn floating-back" onclick="switchTab('main-content')">HUB</button>
         </div>
 
-        <!-- 2nd BUILD -->
-        <div class="build-section">
-            <h1 class="build-main-title">2nd BUILD - Its_Mahir's house</h1>
-            <div class="build-card-info">
-                <div class="build-stats">
-                    <span><strong>Date:</strong> 21 July</span>
-                    <span><strong>Time Taken:</strong> 4h</span>
-                    <span><strong>Builder:</strong> Its_Mahir</span>
-                    <span><strong>Helper:</strong> None</span>
+        <div class="builds-wrapper">
+            <!-- BUILD 1 -->
+            <div class="build-showcase">
+                <h2 class="b-title">01. THE FOUNTAIN</h2>
+                <div class="build-info glass-card">
+                    <div class="b-meta">
+                        <span class="tag">Date: <span class="tag-val">21 July</span></span>
+                        <span class="tag">Time: <span class="tag-val">2 Hours</span></span>
+                        <span class="tag">Architect: <span class="tag-val highlight-gold">Its_Mahir</span></span>
+                    </div>
+                </div>
+                <div class="build-gallery grid-4">
+                    <img src="https://i.postimg.cc/gjWL7csT/Screenshot-2026-07-21-003512.png" alt="Build" class="b-img">
+                    <img src="https://i.postimg.cc/3NT0qr1b/Screenshot-2026-07-21-003023.png" alt="Build" class="b-img">
+                    <img src="https://i.postimg.cc/J0LHF7xS/Screenshot-2026-07-21-002909.png" alt="Build" class="b-img">
+                    <img src="https://i.postimg.cc/JnJBKHNB/Screenshot-2026-07-21-002803.png" alt="Build" class="b-img">
                 </div>
             </div>
-            <div class="build-gallery grid-2">
-                <div class="img-box"><img src="https://i.postimg.cc/CKv00rQT/Screenshot-2026-07-21-121539.png" alt="Photo 1" class="build-img"></div>
-                <div class="img-box"><img src="https://i.postimg.cc/CKv00rQT/Screenshot-2026-07-21-121539.png" alt="Photo 2" class="build-img"></div>
-            </div>
-        </div>
 
-        <!-- 3rd BUILD -->
-        <div class="build-section">
-            <h1 class="build-main-title">3rd BUILD - community hall</h1>
-            <div class="build-card-info">
-                <div class="build-stats">
-                    <span><strong>Date:</strong> 22 July</span>
-                    <span><strong>Time Taken:</strong> 6h</span>
-                    <span><strong>Builder:</strong> Its_Mahir</span>
-                    <span><strong>Recourse Collector:</strong> Its_Sinzo9</span>
+            <!-- BUILD 2 -->
+            <div class="build-showcase">
+                <h2 class="b-title">02. ITS_MAHIR'S HOUSE</h2>
+                <div class="build-info glass-card">
+                    <div class="b-meta">
+                        <span class="tag">Date: <span class="tag-val">21 July</span></span>
+                        <span class="tag">Time: <span class="tag-val">4 Hours</span></span>
+                        <span class="tag">Architect: <span class="tag-val highlight-gold">Its_Mahir</span></span>
+                    </div>
+                </div>
+                <div class="build-gallery grid-2">
+                    <img src="https://i.postimg.cc/CKv00rQT/Screenshot-2026-07-21-121539.png" alt="Build" class="b-img">
+                    <img src="https://i.postimg.cc/CKv00rQT/Screenshot-2026-07-21-121539.png" alt="Build" class="b-img">
                 </div>
             </div>
-            <div class="build-gallery grid-3">
-                <div class="img-box"><img src="https://i.postimg.cc/QC2nscD3/Screenshot-2026-07-22-004240.png" alt="Photo 1" class="build-img"></div>
-                <div class="img-box"><img src="https://i.postimg.cc/tJZmL2KJ/Screenshot-2026-07-22-004507.png" alt="Photo 2" class="build-img"></div>
-                <div class="img-box"><img src="https://i.postimg.cc/fyGgZYsh/Screenshot-2026-07-22-004522.png" alt="Photo 3" class="build-img"></div>
-            </div>
-        </div>
 
-        <!-- 4th BUILD -->
-        <div class="build-section">
-            <h1 class="build-main-title">4th BUILD - Its_Sinzo9's house</h1>
-            <div class="build-card-info">
-                <div class="build-stats">
-                    <span><strong>Date:</strong> 22 July</span>
-                    <span><strong>Time Taken:</strong> 2h</span>
-                    <span><strong>Builder:</strong> Its_Mahir</span>
-                    <span><strong>Helper:</strong> None</span>
+            <!-- BUILD 3 -->
+            <div class="build-showcase">
+                <h2 class="b-title">03. COMMUNITY HALL</h2>
+                <div class="build-info glass-card">
+                    <div class="b-meta">
+                        <span class="tag">Date: <span class="tag-val">22 July</span></span>
+                        <span class="tag">Time: <span class="tag-val">6 Hours</span></span>
+                        <span class="tag">Architect: <span class="tag-val highlight-gold">Its_Mahir</span></span>
+                        <span class="tag">Resources: <span class="tag-val">Its_Sinzo9</span></span>
+                    </div>
+                </div>
+                <div class="build-gallery grid-3">
+                    <img src="https://i.postimg.cc/QC2nscD3/Screenshot-2026-07-22-004240.png" alt="Build" class="b-img">
+                    <img src="https://i.postimg.cc/tJZmL2KJ/Screenshot-2026-07-22-004507.png" alt="Build" class="b-img">
+                    <img src="https://i.postimg.cc/fyGgZYsh/Screenshot-2026-07-22-004522.png" alt="Build" class="b-img">
                 </div>
             </div>
-            <div class="build-gallery grid-2">
-                <div class="img-box"><img src="https://i.postimg.cc/vZRpdw8K/Screenshot-2026-07-26-235514.png" alt="Photo 1" class="build-img"></div>
-                <div class="img-box"><img src="https://i.postimg.cc/Sx0wpbQ5/Screenshot-2026-07-26-235543.png" alt="Photo 2" class="build-img"></div>
-            </div>
-        </div>
 
-        <!-- 5th BUILD -->
-        <div class="build-section">
-            <h1 class="build-main-title">5th BUILD - tradeing hall</h1>
-            <div class="build-card-info">
-                <div class="build-stats">
-                    <span><strong>Date:</strong> 25 July</span>
-                    <span><strong>Time Taken:</strong> 3h</span>
-                    <span><strong>Builder:</strong> Its_Mahir</span>
-                    <span><strong>Helper:</strong> None</span>
+            <!-- BUILD 4 -->
+            <div class="build-showcase">
+                <h2 class="b-title">04. ITS_SINZO9'S HOUSE</h2>
+                <div class="build-info glass-card">
+                    <div class="b-meta">
+                        <span class="tag">Date: <span class="tag-val">22 July</span></span>
+                        <span class="tag">Time: <span class="tag-val">2 Hours</span></span>
+                        <span class="tag">Architect: <span class="tag-val highlight-gold">Its_Mahir</span></span>
+                    </div>
+                </div>
+                <div class="build-gallery grid-2">
+                    <img src="https://i.postimg.cc/vZRpdw8K/Screenshot-2026-07-26-235514.png" alt="Build" class="b-img">
+                    <img src="https://i.postimg.cc/Sx0wpbQ5/Screenshot-2026-07-26-235543.png" alt="Build" class="b-img">
                 </div>
             </div>
-            <div class="build-gallery grid-2">
-                <div class="img-box"><img src="https://i.postimg.cc/9fP2kFG0/Screenshot-2026-07-26-182754.png" alt="Photo 1" class="build-img"></div>
-                <div class="img-box"><img src="https://i.postimg.cc/9fP2kFG0/Screenshot-2026-07-26-182754.png" alt="Photo 2" class="build-img"></div>
-            </div>
-        </div>
 
-        <!-- 6th BUILD -->
-        <div class="build-section">
-            <h1 class="build-main-title">6th BUILD - enchanting area</h1>
-            <div class="build-card-info">
-                <div class="build-stats">
-                    <span><strong>Date:</strong> 26 July</span>
-                    <span><strong>Time Taken:</strong> 50min</span>
-                    <span><strong>Builder:</strong> Its_Mahir</span>
-                    <span><strong>Helper:</strong> None</span>
+            <!-- BUILD 5 -->
+            <div class="build-showcase">
+                <h2 class="b-title">05. TRADING HALL</h2>
+                <div class="build-info glass-card">
+                    <div class="b-meta">
+                        <span class="tag">Date: <span class="tag-val">25 July</span></span>
+                        <span class="tag">Time: <span class="tag-val">3 Hours</span></span>
+                        <span class="tag">Architect: <span class="tag-val highlight-gold">Its_Mahir</span></span>
+                    </div>
+                </div>
+                <div class="build-gallery grid-2">
+                    <img src="https://i.postimg.cc/9fP2kFG0/Screenshot-2026-07-26-182754.png" alt="Build" class="b-img">
+                    <img src="https://i.postimg.cc/9fP2kFG0/Screenshot-2026-07-26-182754.png" alt="Build" class="b-img">
                 </div>
             </div>
-            <div class="build-gallery grid-2">
-                <div class="img-box"><img src="https://i.postimg.cc/1tH985tk/Screenshot-2026-07-26-182849.png" alt="Photo 1" class="build-img"></div>
-                <div class="img-box"><img src="https://i.postimg.cc/DZg2SyZt/Screenshot-2026-07-26-182924.png" alt="Photo 2" class="build-img"></div>
-            </div>
-        </div>
 
-        <!-- 7th BUILD -->
-        <div class="build-section">
-            <h1 class="build-main-title">7th BUILD - Araf_XD's house</h1>
-            <div class="build-card-info">
-                <div class="build-stats">
-                    <span><strong>Date:</strong> 26 July</span>
-                    <span><strong>Time Taken:</strong> 5 days</span>
-                    <span><strong>Builder:</strong> Araf_XD</span>
-                    <span><strong>Helper:</strong> None</span>
+            <!-- BUILD 6 -->
+            <div class="build-showcase">
+                <h2 class="b-title">06. ENCHANTING AREA</h2>
+                <div class="build-info glass-card">
+                    <div class="b-meta">
+                        <span class="tag">Date: <span class="tag-val">26 July</span></span>
+                        <span class="tag">Time: <span class="tag-val">50 Mins</span></span>
+                        <span class="tag">Architect: <span class="tag-val highlight-gold">Its_Mahir</span></span>
+                    </div>
+                </div>
+                <div class="build-gallery grid-2">
+                    <img src="https://i.postimg.cc/1tH985tk/Screenshot-2026-07-26-182849.png" alt="Build" class="b-img">
+                    <img src="https://i.postimg.cc/DZg2SyZt/Screenshot-2026-07-26-182924.png" alt="Build" class="b-img">
                 </div>
             </div>
-            <div class="build-gallery grid-1">
-                <div class="img-box"><img src="https://i.postimg.cc/fWcdvxth/Screenshot-2026-07-26-184158.png" alt="Photo 1" class="build-img"></div>
-            </div>
-        </div>
 
-        <div class="back-btn-container" style="margin-bottom: 50px;">
-            <button class="menu-btn back-btn" onclick="closeGui('builds-gui')">BACK TO MENU</button>
+            <!-- BUILD 7 -->
+            <div class="build-showcase">
+                <h2 class="b-title">07. ARAF_XD'S HOUSE</h2>
+                <div class="build-info glass-card">
+                    <div class="b-meta">
+                        <span class="tag">Date: <span class="tag-val">26 July</span></span>
+                        <span class="tag">Time: <span class="tag-val">5 Days</span></span>
+                        <span class="tag">Architect: <span class="tag-val highlight-gold">Araf_XD</span></span>
+                    </div>
+                </div>
+                <div class="build-gallery grid-1">
+                    <img src="https://i.postimg.cc/fWcdvxth/Screenshot-2026-07-26-184158.png" alt="Build" class="b-img">
+                </div>
+            </div>
+            
+            <div class="footer-area" style="padding-bottom: 50px;">
+                <button class="back-btn" onclick="switchTab('main-content')">RETURN TO HUB</button>
+            </div>
         </div>
     </div>
 
-    <!-- JavaScript logic -->
+    <!-- JavaScript Logic -->
     <script>
-        function handleMenuClick(btn, actionText) {
-            if (actionText === 'SMP RULES') {
-                openGui('rules-gui');
-            } else if (actionText === 'BUILDS') {
-                openGui('builds-gui');
-            } else if (actionText === 'PLAYER INFO') {
-                openGui('player-info-gui');
+        function updateSMPDay() {
+            const startDate = new Date('2026-07-19T00:00:00+06:00'); 
+            const currentDate = new Date();
+            const diffTime = currentDate - startDate;
+            const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24)) + 1; 
+            
+            if(diffDays >= 1) {
+                document.getElementById('smp-day-count').innerText = diffDays;
+            } else {
+                document.getElementById('smp-day-count').innerText = "0";
             }
         }
+        
+        updateSMPDay();
+        setInterval(updateSMPDay, 3600000);
 
-        function openGui(guiId) {
-            document.getElementById('main-content').style.display = 'none';
-            let gui = document.getElementById(guiId);
-            gui.classList.remove('hidden-gui');
-            gui.classList.remove('active');
-            void gui.offsetWidth; // Refresh the DOM
-            gui.classList.add('active');
+        const starContainer = document.getElementById('stars');
+        for(let i=0; i<60; i++) {
+            let star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = Math.random() * 100 + 'vw';
+            star.style.animationDuration = (Math.random() * 4 + 4) + 's';
+            star.style.animationDelay = (Math.random() * 5) + 's';
+            starContainer.appendChild(star);
         }
 
-        function closeGui(guiId) {
-            let gui = document.getElementById(guiId);
-            gui.classList.add('hidden-gui');
-            gui.classList.remove('active');
-            document.getElementById('main-content').style.display = 'flex';
+        function switchTab(tabId) {
+            const sections = document.querySelectorAll('.screen-section');
+            sections.forEach(sec => {
+                sec.classList.remove('active');
+                setTimeout(() => sec.classList.add('hidden-gui'), 400); 
+            });
+
+            setTimeout(() => {
+                const activeTab = document.getElementById(tabId);
+                activeTab.classList.remove('hidden-gui');
+                void activeTab.offsetWidth; 
+                activeTab.classList.add('active');
+            }, 400);
         }
 
-        /* Stats Modal Logic */
         function showStats(name, kill, death, time, kdr) {
             document.getElementById('stat-player-name').innerText = name;
-            document.getElementById('stat-kill').innerText = kill;
-            document.getElementById('stat-death').innerText = death;
+            
+            // Note: Since 'kill' might be larger, animateValue handles numbers
+            animateValue('stat-kill', 0, kill, 800);
+            animateValue('stat-death', 0, death, 800);
             document.getElementById('stat-time').innerText = time;
             document.getElementById('stat-kdr').innerText = kdr;
             
             let modal = document.getElementById('stats-modal');
-            modal.style.display = 'flex';
+            modal.classList.remove('hidden-modal');
         }
 
         function closeStats() {
-            document.getElementById('stats-modal').style.display = 'none';
+            document.getElementById('stats-modal').classList.add('hidden-modal');
+        }
+
+        function animateValue(id, start, endStr, duration) {
+            let end = parseFloat(endStr);
+            if (isNaN(end)) {
+                document.getElementById(id).innerHTML = endStr; return;
+            }
+            let obj = document.getElementById(id);
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                obj.innerHTML = Math.floor(progress * (end - start) + start);
+                if (progress < 1) window.requestAnimationFrame(step);
+                else obj.innerHTML = endStr; // Ensure exact final string (like "100") is set
+            };
+            window.requestAnimationFrame(step);
         }
     </script>
 </body>
