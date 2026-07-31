@@ -12,6 +12,21 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <!-- ⚡ PREMIUM LOADING SCREEN ⚡ -->
+    <div id="loader-wrapper">
+        <div class="loader-content">
+            <div class="loader-top">
+                <span class="system-tag">SYSTEM_BOOT</span>
+                <span class="loader-pct" id="load-pct">0%</span>
+            </div>
+            <div class="loading-bar-bg">
+                <div class="loading-bar-fill" id="load-fill"></div>
+            </div>
+            <div class="loader-bottom" id="load-text">INITIALIZING PROTOCOLS...</div>
+        </div>
+    </div>
+
     <!-- Xeno-Level Ambient & Grid Background -->
     <div class="ambient-bg">
         <div class="cyber-grid"></div>
@@ -31,7 +46,12 @@
 
         <div id="title-section">
             <h2 class="sub-title">OFFICIAL DASHBOARD</h2>
-            <h1 class="main-title">SKILL ISSUE</h1>
+            <!-- SPLIT TEXT FOR SMOOTH REVEAL -->
+            <h1 class="main-title" id="animated-title">
+                <span class="letter">S</span><span class="letter">K</span><span class="letter">I</span><span class="letter">L</span><span class="letter">L</span>
+                &nbsp;
+                <span class="letter">I</span><span class="letter">S</span><span class="letter">S</span><span class="letter">U</span><span class="letter">E</span>
+            </h1>
             <div class="smp-badge">
                 <span class="smp-text">S M P</span>
                 <div class="badge-glint"></div>
@@ -339,6 +359,65 @@
 
     <!-- JavaScript Logic -->
     <script>
+        // --- LOADER & REVEAL ANIMATION LOGIC ---
+        document.addEventListener("DOMContentLoaded", () => {
+            document.body.style.overflow = "hidden"; // Lock scroll during intro
+            
+            const loaderWrapper = document.getElementById("loader-wrapper");
+            const loadFill = document.getElementById("load-fill");
+            const loadPct = document.getElementById("load-pct");
+            const loadText = document.getElementById("load-text");
+            const letters = document.querySelectorAll(".main-title .letter");
+            
+            let progress = 0;
+            const totalDuration = 5000; // 5 Seconds
+            const intervalTime = 30;
+            const increment = (100 / (totalDuration / intervalTime));
+
+            const systemTexts = [
+                "ESTABLISHING SECURE CONNECTION...",
+                "SYNCING ELITE PROTOCOLS...",
+                "LOADING WORLD ARCHIVES...",
+                "BYPASSING SECURITY MAINFRAME...",
+                "ACCESS GRANTED."
+            ];
+
+            let loaderInterval = setInterval(() => {
+                progress += increment;
+                if(progress >= 100) progress = 100;
+                
+                loadFill.style.width = progress + '%';
+                loadPct.innerText = Math.floor(progress) + '%';
+                
+                // Switch text randomly
+                let textIndex = Math.floor((progress / 100) * systemTexts.length);
+                if(textIndex >= systemTexts.length) textIndex = systemTexts.length - 1;
+                loadText.innerText = systemTexts[textIndex];
+
+                if(progress >= 100) {
+                    clearInterval(loaderInterval);
+                    
+                    // After 5s load completes, trigger smooth exit
+                    setTimeout(() => {
+                        loaderWrapper.style.opacity = "0";
+                        loaderWrapper.style.pointerEvents = "none";
+                        document.body.style.overflow = "auto";
+                        
+                        // Fire letter-by-letter reveal smoothly
+                        setTimeout(() => {
+                            letters.forEach((letter, index) => {
+                                setTimeout(() => {
+                                    letter.classList.add("revealed");
+                                }, index * 150); // Delay each letter by 150ms
+                            });
+                        }, 500); 
+                        
+                    }, 400); 
+                }
+            }, intervalTime);
+        });
+
+        // --- EXISTING LOGIC ---
         function updateSMPDay() {
             const startDate = new Date('2026-07-19T00:00:00+06:00'); 
             const currentDate = new Date();
@@ -382,13 +461,10 @@
 
         function showStats(name, kill, death, time, kdr) {
             document.getElementById('stat-player-name').innerText = name;
-            
-            // Note: Since 'kill' might be larger, animateValue handles numbers
             animateValue('stat-kill', 0, kill, 800);
             animateValue('stat-death', 0, death, 800);
             document.getElementById('stat-time').innerText = time;
             document.getElementById('stat-kdr').innerText = kdr;
-            
             let modal = document.getElementById('stats-modal');
             modal.classList.remove('hidden-modal');
         }
@@ -409,7 +485,7 @@
                 const progress = Math.min((timestamp - startTimestamp) / duration, 1);
                 obj.innerHTML = Math.floor(progress * (end - start) + start);
                 if (progress < 1) window.requestAnimationFrame(step);
-                else obj.innerHTML = endStr; // Ensure exact final string (like "100") is set
+                else obj.innerHTML = endStr; 
             };
             window.requestAnimationFrame(step);
         }
