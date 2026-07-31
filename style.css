@@ -2,7 +2,7 @@
    CORE SETUP & XENO-LEVEL VARIABLES
    ========================================= */
 :root {
-    --bg-dark: #07070a;
+    --bg-dark: #050505; /* Blacker background */
     --primary-color: #ffd700;  
     --primary-glow: rgba(255, 215, 0, 0.6);
     --accent-color: #facc15;   
@@ -17,6 +17,25 @@ body {
     margin: 0; padding: 0; background-color: var(--bg-dark); 
     color: var(--text-main); font-family: 'Inter', sans-serif; overflow-x: hidden; 
 }
+
+/* =========================================
+   PREMIUM LOADING SCREEN
+   ========================================= */
+#loader-wrapper {
+    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+    background: #000000; z-index: 9999; display: flex;
+    justify-content: center; align-items: center;
+    transition: opacity 0.8s ease;
+}
+.loader-content {
+    width: 85%; max-width: 450px; display: flex; flex-direction: column; gap: 15px;
+}
+.loader-top { display: flex; justify-content: space-between; align-items: flex-end; }
+.system-tag { font-family: 'Orbitron', sans-serif; font-size: 0.9rem; color: var(--primary-color); font-weight: 700; letter-spacing: 2px; }
+.loader-pct { font-family: 'Orbitron', sans-serif; font-size: 2rem; color: #fff; font-weight: 900; }
+.loading-bar-bg { width: 100%; height: 2px; background: #222; border-radius: 2px; overflow: hidden; position: relative;}
+.loading-bar-fill { height: 100%; width: 0%; background: var(--primary-color); box-shadow: 0 0 15px var(--primary-color); }
+.loader-bottom { font-family: 'Inter', sans-serif; font-size: 0.8rem; color: #666; letter-spacing: 2px; text-transform: uppercase; }
 
 /* =========================================
    AMBIENT BACKGROUND 
@@ -78,15 +97,33 @@ body {
 .status-text .highlight { color: var(--primary-color); text-shadow: 0 0 10px var(--primary-glow); font-size: 1rem;}
 
 /* =========================================
-   HOME PAGE - TYPOGRAPHY
+   HOME PAGE - TYPOGRAPHY & REVEAL ANIM
    ========================================= */
 #title-section { text-align: center; margin-bottom: 50px; margin-top: 20px;}
 .sub-title { font-family: 'Inter', sans-serif; font-size: 1.2rem; color: var(--text-dim); letter-spacing: 8px; margin-bottom: 5px; text-transform: uppercase; font-weight: 600; }
+
+/* The Animated Main Title */
 .main-title { 
-    font-family: 'Orbitron', sans-serif; font-size: 7rem; font-weight: 900; margin: 0; color: var(--primary-color); 
-    text-shadow: 0 0 20px rgba(255, 215, 0, 0.5), 0 0 40px rgba(255, 215, 0, 0.3), 4px 4px 0px rgba(0,0,0,1);
-    letter-spacing: -2px; line-height: 1.1;
+    font-family: 'Orbitron', sans-serif; font-size: 7rem; font-weight: 900; margin: 0; 
+    letter-spacing: -2px; line-height: 1.1; display: flex; justify-content: center;
 }
+.main-title .letter {
+    display: inline-block;
+    opacity: 0;
+    transform: scale(0.6) translateY(20px);
+    filter: blur(10px);
+    color: transparent;
+    text-shadow: 0 0 0 rgba(255, 215, 0, 0);
+    transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.main-title .letter.revealed {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    filter: blur(0);
+    color: var(--primary-color);
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.5), 0 0 40px rgba(255, 215, 0, 0.3), 4px 4px 0px rgba(0,0,0,1);
+}
+
 .smp-badge {
     display: inline-block; position: relative; margin-top: 10px; background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0));
     border: 1px solid var(--primary-color); padding: 8px 30px; border-radius: 4px;
@@ -229,7 +266,7 @@ body {
 
 /* Responsive adjustments */
 @media (max-width: 800px) {
-    .main-title { font-size: 4rem; }
+    .main-title { font-size: 3.5rem; }
     .button-row { flex-direction: column; gap: 15px;}
     .elite-btn { width: 100%; }
     .player-card, .info-row { flex-direction: column; align-items: flex-start; gap: 10px;}
