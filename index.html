@@ -3,31 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skill Issue SMP | The Ultimate Hub</title>
+    <title>Skill Issue SMP | Elite Hub</title>
     <!-- Elite Gaming Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
-    <!-- Link CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- ⚡ PREMIUM LOADING SCREEN ⚡ -->
+    <!-- ⚡ ULTRA PREMIUM LOADING SCREEN ⚡ -->
     <div id="loader-wrapper">
+        <div class="loader-bg-grid"></div>
         <div class="loader-content">
-            <div class="loader-top">
-                <span class="system-tag">SYSTEM_BOOT</span>
-                <span class="loader-pct" id="load-pct">0%</span>
+            <div class="terminal-boot">
+                <p id="boot-text-1">> Araf_gay...</p>
+              
+<p id="boot-text-2" style="display:none;">> welcome to [SKILL_ISSUE]</p>
+<p id="boot-text-3" style="display:none;">> enjoy(made by Its_Mahir)</p>
             </div>
-            <div class="loading-bar-bg">
-                <div class="loading-bar-fill" id="load-fill"></div>
+            
+            <div class="loader-center-ring">
+                <div class="loader-pct" id="load-pct">0%</div>
+                <div class="star-container"></div>
             </div>
-            <div class="loader-bottom" id="load-text">INITIALIZING PROTOCOLS...</div>
+
+            <div class="special-chill">
+                <div class="googleapis" id="load-fill"></div>
+            </div>
         </div>
     </div>
 
-    <!-- Xeno-Level Ambient & Grid Background -->
+    <!-- Xeno-Level Ambient Background -->
     <div class="ambient-bg">
         <div class="cyber-grid"></div>
         <div class="glow-orb orb-1"></div>
@@ -46,7 +53,6 @@
 
         <div id="title-section">
             <h2 class="sub-title">OFFICIAL DASHBOARD</h2>
-            <!-- SPLIT TEXT FOR SMOOTH REVEAL -->
             <h1 class="main-title" id="animated-title">
                 <span class="letter">S</span><span class="letter">K</span><span class="letter">I</span><span class="letter">L</span><span class="letter">L</span>
                 &nbsp;
@@ -58,22 +64,17 @@
             </div>
         </div>
 
+        <!-- 6 COMPACT UNIQUE BUTTONS GRID -->
         <div id="button-section">
             <div class="button-row">
-                <button class="elite-btn" onclick="switchTab('player-info-gui')">
-                    <span class="btn-text">PLAYER RANKINGS</span>
-                </button>
-                <button class="elite-btn" onclick="switchTab('rules-gui')">
-                    <span class="btn-text">SERVER DIRECTIVES</span>
-                </button>
+                <button class="elite-btn" onclick="switchTab('player-info-gui')"><span class="btn-text">ELITE RANKINGS</span></button>
+                <button class="elite-btn alert-glow" onclick="switchTab('server-info-gui')"><span class="btn-text">SYSTEM CORE</span></button>
+                <button class="elite-btn cyber-glow" onclick="switchTab('farms-gui')"><span class="btn-text">ACTIVE FARMS</span></button>
             </div>
             <div class="button-row">
-                <button class="elite-btn primary-glow" onclick="switchTab('builds-gui')">
-                    <span class="btn-text">MASTERPIECE BUILDS</span>
-                </button>
-                <button class="elite-btn alert-glow" onclick="switchTab('server-info-gui')">
-                    <span class="btn-text">SERVER INFO</span>
-                </button>
+                <button class="elite-btn" onclick="switchTab('builds-gui')"><span class="btn-text">BUILDS</span></button>
+                <button class="elite-btn primary-glow" onclick="switchTab('missions-gui')"><span class="btn-text">MEGA MISSIONS</span></button>
+                <button class="elite-btn" onclick="switchTab('rules-gui')"><span class="btn-text">DIRECTIVES</span></button>
             </div>
         </div>
     </div>
@@ -85,26 +86,173 @@
             <div class="heading-line"></div>
             <button class="back-btn floating-back" onclick="switchTab('main-content')">HUB</button>
         </div>
-
         <div class="info-wrapper">
             <div class="glass-card server-card">
-                <div class="info-row">
-                    <span class="info-label">SERVER IP ADDRESS</span>
-                    <span class="info-val highlight-gold">skillissuesmp.qzz.io</span>
+                <div class="info-row"><span class="info-label">SERVER IP ADDRESS</span><span class="info-val highlight-gold">skillissuesmp.qzz.io</span></div>
+                <div class="info-row"><span class="info-label">WORLD SEED</span><span class="info-val">3273190341372830859</span></div>
+                <div class="info-row date-row"><span class="info-label">SYSTEM INITIATION</span><div class="glitch-date"><span class="d-text">19 JULY 2026</span><div class="d-glitch"></div></div></div>
+            </div>
+            <div class="footer-area"><button class="back-btn" onclick="switchTab('main-content')">RETURN TO HUB</button></div>
+        </div>
+    </div>
+
+    <!-- MEGA MISSIONS GUI SCREEN -->
+    <div id="missions-gui" class="screen-section hidden-gui scrollable">
+        <div class="header-container sticky-header">
+            <h1 class="section-heading" style="color: #ffd700; text-shadow: 0 0 20px rgba(255,215,0,0.5);">MEGA MISSIONS</h1>
+            <div class="heading-line"></div>
+            <button class="back-btn floating-back" onclick="switchTab('main-content')">HUB</button>
+        </div>
+        
+        <div class="missions-wrapper">
+            <div class="mission-timeline">
+                
+                <!-- Phase 1 -->
+                <div class="phase-block">
+                    <h3 class="phase-date">PHASE 1: 10 - 30 AUG</h3>
+                    <div class="quest-card"><span class="q-task">Air port (Mini)</span><span class="q-assignee">Its_Mahir</span></div>
+                    <div class="quest-card"><span class="q-task">Plane x3, Jet x2/4, Helicopter x2</span><span class="q-assignee">Its_Mahir</span></div>
+                    <div class="quest-card"><span class="q-task">Dragon (Black)</span><span class="q-assignee">Its_Mahir</span></div>
+                    <div class="quest-card"><span class="q-task">Stone farm</span><span class="q-assignee">Its_Rudronil</span></div>
+                    <div class="quest-card"><span class="q-task">Mandir</span><span class="q-assignee">Its_Rudronil</span></div>
+                    <div class="quest-card"><span class="q-task">SKILL-ISSUE SMP (Logo)</span><span class="q-assignee">Its_Mahir</span></div>
                 </div>
-                <div class="info-row">
-                    <span class="info-label">WORLD SEED</span>
-                    <span class="info-val">3273190341372830859</span>
+
+                <!-- Phase 2 -->
+                <div class="phase-block">
+                    <h3 class="phase-date">PHASE 2: 1 - 10 SEP</h3>
+                    <div class="quest-card"><span class="q-task">Mosque</span><span class="q-assignee">Its_Mahir</span></div>
+                    <div class="quest-card"><span class="q-task">PvP area</span><span class="q-assignee">Its_Mahir</span></div>
+                    <div class="quest-card"><span class="q-task">End Portal (Desine/Remake)</span><span class="q-assignee">Its_Mahir</span></div>
+                    <div class="quest-card"><span class="q-task">Totem pixel Art</span><span class="q-assignee">Its_Mahir</span></div>
+                    <div class="quest-card"><span class="q-task">Wind Rod farm</span><span class="q-assignee">Its_Rudronil</span></div>
                 </div>
-                <div class="info-row date-row">
-                    <span class="info-label">SYSTEM INITIATION</span>
-                    <div class="glitch-date">
-                        <span class="d-text">19 JULY 2026</span>
-                        <div class="d-glitch"></div>
+
+                <!-- Phase 3 -->
+                <div class="phase-block">
+                    <h3 class="phase-date">PHASE 3: 11 - 15 SEP</h3>
+                    <div class="quest-card"><span class="q-task">Nether Skeleton farm</span><span class="q-assignee highlight-pink">Its_Mahir</span></div>
+                    <div class="quest-card"><span class="q-task">Technoblade Statue ♥</span><span class="q-assignee highlight-pink">Its_Mahir</span></div>
+                </div>
+
+                <!-- Phase 4 -->
+                <div class="phase-block">
+                    <h3 class="phase-date">PHASE 4: 17 - 25 SEP</h3>
+                    <div class="quest-card"><span class="q-task">Iron farm x3</span><span class="q-assignee">Its_Rudronil / Its_Sinzo9</span></div>
+                    <div class="quest-card"><span class="q-task">Anime Girl statue <br><small style="color: #666;">*Builder is not sure to make it...</small></span><span class="q-assignee">Its_Mahir</span></div>
+                    <div class="quest-card"><span class="q-task">Sand/Gravel farm</span><span class="q-assignee">Its_Mahir</span></div>
+                    <div class="quest-card"><span class="q-task">MEGA SWORD</span><span class="q-assignee">Its_Mahir</span></div>
+                </div>
+
+                <!-- Chill Phase -->
+                <div class="phase-block">
+                    <h3 class="phase-date">PHASE 5: 25 - 30 SEP</h3>
+                    <div class="quest-card special-chill"><span class="q-task">No work Only chill ☕</span><span class="q-assignee">Everyone</span></div>
+                </div>
+
+                <!-- Phase 6 -->
+                <div class="phase-block">
+                    <h3 class="phase-date">PHASE 6: 1 - 20/30 OCT</h3>
+                    <div class="quest-card"><span class="q-task">Floating Island with every biom</span><span class="q-assignee highlight-cyan">Everyone</span></div>
+                </div>
+
+                <!-- Phase 7 -->
+                <div class="phase-block">
+                    <h3 class="phase-date">PHASE 7: 1 - 10 NOV</h3>
+                    <div class="quest-card"><span class="q-task">End (Remake/Desine)</span><span class="q-assignee highlight-cyan">Its_Mahir + Everyone</span></div>
+                </div>
+
+                <div class="pending-notice">More Is Pending.........</div>
+            </div>
+            
+            <div class="footer-area" style="padding-bottom: 50px;">
+                <button class="back-btn" onclick="switchTab('main-content')">RETURN TO HUB</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- FARMS GUI SCREEN (NOW UPDATED WITH 5 FARMS) -->
+    <div id="farms-gui" class="screen-section hidden-gui scrollable">
+        <div class="header-container sticky-header">
+            <h1 class="section-heading" style="color: #00f0ff; text-shadow: 0 0 20px rgba(0,240,255,0.4);">ACTIVE FARMS</h1>
+            <div class="heading-line" style="background: #00f0ff; box-shadow: 0 0 10px #00f0ff;"></div>
+            <button class="back-btn floating-back" onclick="switchTab('main-content')">HUB</button>
+        </div>
+        <div class="builds-wrapper">
+            
+            <!-- FARM 1 -->
+            <div class="build-showcase">
+                <h2 class="b-title" style="color: #00f0ff;">01. IRON FARM</h2>
+                <div class="build-info glass-card" style="border-color: rgba(0,240,255,0.2);">
+                    <div class="b-meta">
+                        <span class="tag">Time: <span class="tag-val">1 Hour</span></span>
+                        <span class="tag">Architect: <span class="tag-val" style="color: #00f0ff;">Its_Mahir</span></span>
+                        <span class="tag">Resources: <span class="tag-val">Its_Sinzo9</span></span>
                     </div>
                 </div>
+                <div class="build-gallery grid-1">
+                    <img src="https://i.postimg.cc/wBdYwTKG/Screenshot-2026-08-06-004822.png" alt="Farm Photo" class="b-img" style="border-color: rgba(0,240,255,0.2);">
+                </div>
             </div>
-            <div class="footer-area">
+
+            <!-- FARM 2 -->
+            <div class="build-showcase">
+                <h2 class="b-title" style="color: #00f0ff;">02. ENDER MAN</h2>
+                <div class="build-info glass-card" style="border-color: rgba(0,240,255,0.2);">
+                    <div class="b-meta">
+                        <span class="tag">Time: <span class="tag-val">3 Hours</span></span>
+                        <span class="tag">Architect: <span class="tag-val" style="color: #00f0ff;">Its_Mahir</span></span>
+                        <span class="tag">Resources: <span class="tag-val">Its_Sinzo9</span></span>
+                    </div>
+                </div>
+                <div class="build-gallery grid-1">
+                    <img src="https://i.postimg.cc/k441ck5p/Screenshot-2026-08-06-004514.png" alt="Farm Photo" class="b-img" style="border-color: rgba(0,240,255,0.2);">
+                </div>
+            </div>
+
+            <!-- FARM 3 -->
+            <div class="build-showcase">
+                <h2 class="b-title" style="color: #00f0ff;">03. SUGAR CANE</h2>
+                <div class="build-info glass-card" style="border-color: rgba(0,240,255,0.2);">
+                    <div class="b-meta">
+                        <span class="tag">Time: <span class="tag-val">56 Mins</span></span>
+                        <span class="tag">Architect: <span class="tag-val" style="color: #00f0ff;">Its_Mahir</span></span>
+                    </div>
+                </div>
+                <div class="build-gallery grid-1">
+                    <img src="https://i.postimg.cc/P5y0Qb4D/Screenshot-2026-08-06-004842.png" alt="Farm Photo" class="b-img" style="border-color: rgba(0,240,255,0.2);">
+                </div>
+            </div>
+
+            <!-- FARM 4 -->
+            <div class="build-showcase">
+                <h2 class="b-title" style="color: #00f0ff;">04. CREEPER AND SPIDER FARM</h2>
+                <div class="build-info glass-card" style="border-color: rgba(0,240,255,0.2);">
+                    <div class="b-meta">
+                        <span class="tag">Architect: <span class="tag-val" style="color: #00f0ff;">Its_Mahir</span></span>
+                    </div>
+                </div>
+                <div class="build-gallery grid-2">
+                    <img src="https://i.postimg.cc/VkfVvr85/Screenshot-2026-08-06-094402.png" alt="Farm Photo" class="b-img" style="border-color: rgba(0,240,255,0.2);">
+                    <img src="https://i.postimg.cc/52skC44H/Screenshot-2026-08-06-094424.png" alt="Farm Photo" class="b-img" style="border-color: rgba(0,240,255,0.2);">
+                </div>
+            </div>
+
+            <!-- FARM 5 -->
+            <div class="build-showcase">
+                <h2 class="b-title" style="color: #00f0ff;">05. BONE MEAL FARM</h2>
+                <div class="build-info glass-card" style="border-color: rgba(0,240,255,0.2);">
+                    <div class="b-meta">
+                        <span class="tag">Time: <span class="tag-val">20 Mins</span></span>
+                        <span class="tag">Architect: <span class="tag-val" style="color: #00f0ff;">Its_Rudronil</span></span>
+                    </div>
+                </div>
+                <div class="build-gallery grid-1">
+                    <img src="https://i.postimg.cc/Pf13Mzfj/Screenshot-2026-08-06-232136.png" alt="Farm Photo" class="b-img" style="border-color: rgba(0,240,255,0.2);">
+                </div>
+            </div>
+
+            <div class="footer-area" style="padding-bottom: 50px;">
                 <button class="back-btn" onclick="switchTab('main-content')">RETURN TO HUB</button>
             </div>
         </div>
@@ -117,48 +265,28 @@
             <div class="heading-line"></div>
             <button class="back-btn floating-back" onclick="switchTab('main-content')">HUB</button>
         </div>
-        
         <div class="player-list-container">
-            <!-- Rank 1 -->
             <div class="glass-card player-card rank-1">
-                <div class="player-name-section">
-                    <div class="rank-badge gold">#1</div>
-                    <div class="p-name">Its_Mahir</div>
-                </div>
-                <button class="action-btn" onclick="showStats('Its_Mahir', '100', '1', '45h', '100.00')">VIEW DATA</button>
+                <div class="player-name-section"><div class="rank-badge gold">#1</div><div class="p-name">Its_Mahir</div></div>
+                <button class="action-btn" onclick="showStats('Its_Mahir', '244', '5', '64h 12min', '48.80')">VIEW DATA</button>
             </div>
-            
-            <!-- Rank 2 -->
             <div class="glass-card player-card">
-                <div class="player-name-section">
-                    <div class="rank-badge silver">#2</div>
-                    <div class="p-name">Its_Sinzo9</div>
-                </div>
-                <button class="action-btn" onclick="showStats('Its_Sinzo9', '87', '44', '36h 9m', '1.98')">VIEW DATA</button>
+                <div class="player-name-section"><div class="rank-badge silver">#2</div><div class="p-name">Its_Sinzo9</div></div>
+                <button class="action-btn" onclick="showStats('Its_Sinzo9', '126', '82', '54h', '1.54')">VIEW DATA</button>
             </div>
-
-            <!-- Rank 3 -->
             <div class="glass-card player-card">
-                <div class="player-name-section">
-                    <div class="rank-badge bronze">#3</div>
-                    <div class="p-name">Araf_XD(gay)</div>
-                </div>
-                <button class="action-btn" onclick="showStats('Araf_XD', '10', '121', '15h', '0.26')">VIEW DATA</button>
+                <div class="player-name-section"><div class="rank-badge bronze">#3</div><div class="p-name">Its_Rudronil</div></div>
+                <button class="action-btn" onclick="showStats('Its_Rudronil', '41', '96', '37h 6min', '0.43')">VIEW DATA</button>
             </div>
-
-            <!-- Rank 4 -->
             <div class="glass-card player-card">
-                <div class="player-name-section">
-                    <div class="rank-badge normal">#4</div>
-                    <div class="p-name">Its_Rudronil</div>
+                <div class="player-name-section"><div class="rank-badge normal">#4</div><div class="p-name">Araf_XD</div></div>
+                <button class="action-btn" onclick="showStats('Araf_XD', '11', '285', '19h 36min', '0.04')">VIEW DATA</button>
                 </div>
-                <button class="action-btn" onclick="showStats('Its_Rudronil', '22', '90', '22h', '0.25')">VIEW DATA</button>
+            <div class="glass-card player-card">
+                <div class="player-name-section"><div class="rank-badge normal">#5</div><div class="p-name">COMING SOON...</div></div>
+                <button class="action-btn" onclick="showStats()">VIEW DATA</button>
             </div>
-            
-            <div class="footer-area">
-                <p class="sys-notice">System auto-syncs data every week</p>
-                <button class="back-btn" onclick="switchTab('main-content')">RETURN TO HUB</button>
-            </div>
+            <div class="footer-area"><p class="sys-notice">System auto-syncs data every week</p><button class="back-btn" onclick="switchTab('main-content')">RETURN TO HUB</button></div>
         </div>
     </div>
 
@@ -166,27 +294,12 @@
     <div id="stats-modal" class="hidden-modal">
         <div class="stats-box premium-glass-modal">
             <button class="close-icon" onclick="closeStats()">×</button>
-            <div class="modal-header">
-                <div class="online-pulse"></div>
-                <h2 id="stat-player-name" class="modal-title">PLAYER_NAME</h2>
-            </div>
+            <div class="modal-header"><div class="online-pulse"></div><h2 id="stat-player-name" class="modal-title">PLAYER_NAME</h2></div>
             <div class="stat-grid">
-                <div class="stat-item">
-                    <span class="stat-label">ELIMINATIONS</span>
-                    <span class="stat-val" id="stat-kill">0</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-label">DEATHS</span>
-                    <span class="stat-val" id="stat-death">0</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-label">TIME PLAYED</span>
-                    <span class="stat-val text-cyan" id="stat-time">0h</span>
-                </div>
-                <div class="stat-item alert-box">
-                    <span class="stat-label">K/D RATIO</span>
-                    <span class="stat-val text-red" id="stat-kdr">0.00</span>
-                </div>
+                <div class="stat-item"><span class="stat-label">ELIMINATIONS</span><span class="stat-val" id="stat-kill">0</span></div>
+                <div class="stat-item"><span class="stat-label">DEATHS</span><span class="stat-val" id="stat-death">0</span></div>
+                <div class="stat-item"><span class="stat-label">TIME PLAYED</span><span class="stat-val text-cyan" id="stat-time">0h</span></div>
+                <div class="stat-item alert-box"><span class="stat-label">K/D RATIO</span><span class="stat-val text-red" id="stat-kdr">0.00</span></div>
             </div>
         </div>
     </div>
@@ -198,44 +311,23 @@
             <div class="heading-line"></div>
             <button class="back-btn floating-back" onclick="switchTab('main-content')">HUB</button>
         </div>
-        
         <div class="rules-container">
-            <div class="glass-card rule-item">
-                <div class="rule-icon">🛡️</div>
-                <div class="rule-text">
-                    <h3>DIRECTIVE 01: ARCHITECTURE</h3>
-                    <p>No builds can be blown up or griefed. Respect the creations of others.</p>
-                </div>
-            </div>
-            <div class="glass-card rule-item">
-                <div class="rule-icon">⚔️</div>
-                <div class="rule-text">
-                    <h3>DIRECTIVE 02: COMBAT</h3>
-                    <p>PvP engagement is strictly restricted to nighttime hours only.</p>
-                </div>
-            </div>
-            <div class="glass-card rule-item">
-                <div class="rule-icon">🔒</div>
-                <div class="rule-text">
-                    <h3>DIRECTIVE 03: PROPERTY</h3>
-                    <p>Looting or stealing goods from anyone's chest is strictly prohibited.</p>
-                </div>
-            </div>
-            <div class="footer-area">
-                <button class="back-btn" onclick="switchTab('main-content')">RETURN TO HUB</button>
-            </div>
+            <div class="glass-card rule-item"><div class="rule-icon">🛡️</div><div class="rule-text"><h3>DIRECTIVE 01: ARCHITECTURE</h3><p>No builds can be blown up or griefed. Respect the creations of others.</p></div></div>
+            <div class="glass-card rule-item"><div class="rule-icon">⚔️</div><div class="rule-text"><h3>DIRECTIVE 02: COMBAT</h3><p>PvP engagement is strictly restricted to nighttime hours only.</p></div></div>
+            <div class="glass-card rule-item"><div class="rule-icon">🔒</div><div class="rule-text"><h3>DIRECTIVE 03: PROPERTY</h3><p>Looting or stealing goods from anyone's chest is strictly prohibited.</p></div></div>
+            <div class="footer-area"><button class="back-btn" onclick="switchTab('main-content')">RETURN TO HUB</button></div>
         </div>
     </div>
 
-    <!-- BUILDS SCREEN -->
+    <!-- BUILDS SCREEN (ALL 13 BUILDS) -->
     <div id="builds-gui" class="screen-section hidden-gui scrollable">
         <div class="header-container sticky-header">
-            <h1 class="section-heading">MASTERPIECES</h1>
+            <h1 class="section-heading">ARCHIVES</h1>
             <div class="heading-line"></div>
             <button class="back-btn floating-back" onclick="switchTab('main-content')">HUB</button>
         </div>
-
         <div class="builds-wrapper">
+            
             <!-- BUILD 1 -->
             <div class="build-showcase">
                 <h2 class="b-title">01. THE FOUNTAIN</h2>
@@ -350,7 +442,89 @@
                     <img src="https://i.postimg.cc/fWcdvxth/Screenshot-2026-07-26-184158.png" alt="Build" class="b-img">
                 </div>
             </div>
-            
+
+            <!-- BUILD 8 -->
+            <div class="build-showcase">
+                <h2 class="b-title">08. NETHER PORTAL</h2>
+                <div class="build-info glass-card">
+                    <div class="b-meta">
+                        <span class="tag">Time: <span class="tag-val">35 Mins</span></span>
+                        <span class="tag">Architect: <span class="tag-val highlight-gold">Its_Mahir</span></span>
+                    </div>
+                </div>
+                <div class="build-gallery grid-1">
+                    <img src="https://i.postimg.cc/Dw0PRqh4/Screenshot-2026-07-28-113911.png" alt="Build" class="b-img">
+                </div>
+            </div>
+
+            <!-- BUILD 9 -->
+            <div class="build-showcase">
+                <h2 class="b-title">09. STORAGE AREA</h2>
+                <div class="build-info glass-card">
+                    <div class="b-meta">
+                        <span class="tag">Time: <span class="tag-val">1h 24m</span></span>
+                        <span class="tag">Architect: <span class="tag-val highlight-gold">Its_Mahir</span></span>
+                    </div>
+                </div>
+                <div class="build-gallery grid-1">
+                    <img src="https://i.postimg.cc/WzsM8ZST/Screenshot-2026-08-06-004902.png" alt="Build" class="b-img">
+                </div>
+            </div>
+
+            <!-- BUILD 10 -->
+            <div class="build-showcase">
+                <h2 class="b-title">10. ITS_RUDRONIL'S HOUSE</h2>
+                <div class="build-info glass-card">
+                    <div class="b-meta">
+                        <span class="tag">Time: <span class="tag-val">18 Days</span></span>
+                        <span class="tag">Architect: <span class="tag-val highlight-gold">Its_Rudronil</span></span>
+                    </div>
+                </div>
+                <div class="build-gallery grid-1">
+                    <img src="https://i.postimg.cc/W1xgKCXc/Screenshot-2026-08-06-005001.png" alt="Build" class="b-img">
+                </div>
+            </div>
+
+            <!-- BUILD 11 -->
+            <div class="build-showcase">
+                <h2 class="b-title">11. 4 BEACON (DIAMOND, GOLD, EMERALD, IRON)</h2>
+                <div class="build-info glass-card">
+                    <div class="b-meta">
+                        <span class="tag">Architect: <span class="tag-val highlight-gold">Its_Sinzo9 & Its_Mahir</span></span>
+                    </div>
+                </div>
+                <div class="build-gallery grid-1">
+                    <img src="https://i.postimg.cc/B60DZFrT/Screenshot-2026-08-06-010244.png" alt="Build" class="b-img">
+                </div>
+            </div>
+
+            <!-- BUILD 12 -->
+            <div class="build-showcase">
+                <h2 class="b-title">12. 3 soword (diamond,gold,iron)</h2>
+                <div class="build-info glass-card">
+                    <div class="b-meta">
+                        <span class="tag">Architect: <span class="tag-val highlight-gold">Its_Mahir</span></span>
+                    </div>
+                </div>
+                <div class="build-gallery grid-1">
+                    <img src="https://i.postimg.cc/HsxMLdNs/Screenshot-2026-08-06-174805.png" alt="Build" class="b-img">
+                </div>
+            </div>
+
+            <!-- BUILD 13 -->
+            <div class="build-showcase">
+                <h2 class="b-title">13. BIG CHERRY BLOSSOM TREE</h2>
+                <div class="build-info glass-card">
+                    <div class="b-meta">
+                        <span class="tag">Time: <span class="tag-val">41 Mins</span></span>
+                        <span class="tag">Architect: <span class="tag-val highlight-gold">Its_Mahir</span></span>
+                    </div>
+                </div>
+                <div class="build-gallery grid-1">
+                    <img src="https://i.postimg.cc/k5x6H42B/Screenshot-2026-08-06-182537.png" alt="Build" class="b-img">
+                </div>
+            </div>
+
             <div class="footer-area" style="padding-bottom: 50px;">
                 <button class="back-btn" onclick="switchTab('main-content')">RETURN TO HUB</button>
             </div>
@@ -359,28 +533,22 @@
 
     <!-- JavaScript Logic -->
     <script>
-        // --- LOADER & REVEAL ANIMATION LOGIC ---
         document.addEventListener("DOMContentLoaded", () => {
-            document.body.style.overflow = "hidden"; // Lock scroll during intro
+            document.body.style.overflow = "hidden"; 
             
             const loaderWrapper = document.getElementById("loader-wrapper");
             const loadFill = document.getElementById("load-fill");
             const loadPct = document.getElementById("load-pct");
-            const loadText = document.getElementById("load-text");
             const letters = document.querySelectorAll(".main-title .letter");
             
+            // Terminal Text Sequence
+            setTimeout(() => { document.getElementById("boot-text-2").style.display = "block"; }, 1500);
+            setTimeout(() => { document.getElementById("boot-text-3").style.display = "block"; }, 3000);
+            
             let progress = 0;
-            const totalDuration = 5000; // 5 Seconds
+            const totalDuration = 5500; 
             const intervalTime = 30;
             const increment = (100 / (totalDuration / intervalTime));
-
-            const systemTexts = [
-                "ESTABLISHING SECURE CONNECTION...",
-                "SYNCING ELITE PROTOCOLS...",
-                "LOADING WORLD ARCHIVES...",
-                "BYPASSING SECURITY MAINFRAME...",
-                "ACCESS GRANTED."
-            ];
 
             let loaderInterval = setInterval(() => {
                 progress += increment;
@@ -389,35 +557,27 @@
                 loadFill.style.width = progress + '%';
                 loadPct.innerText = Math.floor(progress) + '%';
                 
-                // Switch text randomly
-                let textIndex = Math.floor((progress / 100) * systemTexts.length);
-                if(textIndex >= systemTexts.length) textIndex = systemTexts.length - 1;
-                loadText.innerText = systemTexts[textIndex];
-
                 if(progress >= 100) {
                     clearInterval(loaderInterval);
                     
-                    // After 5s load completes, trigger smooth exit
                     setTimeout(() => {
-                        loaderWrapper.style.opacity = "0";
-                        loaderWrapper.style.pointerEvents = "none";
+                        loaderWrapper.classList.add("fade-out");
                         document.body.style.overflow = "auto";
                         
-                        // Fire letter-by-letter reveal smoothly
                         setTimeout(() => {
                             letters.forEach((letter, index) => {
                                 setTimeout(() => {
                                     letter.classList.add("revealed");
-                                }, index * 150); // Delay each letter by 150ms
+                                }, index * 120); 
                             });
-                        }, 500); 
+                        }, 400); 
                         
-                    }, 400); 
+                        setTimeout(() => { loaderWrapper.style.display = "none"; }, 1000);
+                    }, 500); 
                 }
             }, intervalTime);
         });
 
-        // --- EXISTING LOGIC ---
         function updateSMPDay() {
             const startDate = new Date('2026-07-19T00:00:00+06:00'); 
             const currentDate = new Date();
@@ -431,11 +591,10 @@
             }
         }
         
-        updateSMPDay();
-        setInterval(updateSMPDay, 3600000);
+        updateSMPDay(); setInterval(updateSMPDay, 3600000);
 
         const starContainer = document.getElementById('stars');
-        for(let i=0; i<60; i++) {
+        for(let i=0; i<50; i++) {
             let star = document.createElement('div');
             star.className = 'star';
             star.style.left = Math.random() * 100 + 'vw';
@@ -469,15 +628,11 @@
             modal.classList.remove('hidden-modal');
         }
 
-        function closeStats() {
-            document.getElementById('stats-modal').classList.add('hidden-modal');
-        }
+        function closeStats() { document.getElementById('stats-modal').classList.add('hidden-modal'); }
 
         function animateValue(id, start, endStr, duration) {
             let end = parseFloat(endStr);
-            if (isNaN(end)) {
-                document.getElementById(id).innerHTML = endStr; return;
-            }
+            if (isNaN(end)) { document.getElementById(id).innerHTML = endStr; return; }
             let obj = document.getElementById(id);
             let startTimestamp = null;
             const step = (timestamp) => {
